@@ -1,0 +1,22 @@
+<view class="detail-view">
+  <view class="avatar-view">
+    <image class="avatar" mode="aspectFill" src="{{bx_imageUrl}}" />
+  </view>
+
+  <view class="basic">
+    <view class="name">{{invitorName}}想邀请你共同使用冰箱</view>
+  </view>
+
+</view>
+
+
+<!-- <button type="primary" bindtap="jieshou" class="jieshou">接受</button>
+
+<button type="default" bindtap="jujue">拒绝</button> -->
+
+<view class="btn-area">
+
+  <button class="b1" type="primary" bindtap="jieshou">接受</button>
+  <button class="b2" bindtap="jujue">拒绝</button>
+
+</view>

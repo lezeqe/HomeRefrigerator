@@ -1,0 +1,44 @@
+<h1>添加食物相宜相克资料</h1>
+
+
+<form catchsubmit="formSubmit" catchreset="formReset">
+
+
+  <view class="cu-form-group">
+    <view class="title">影响类别：</view>
+    <input value="{{jibie}}" bindinput="jibieInput" placeholder="影响类别"></input>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title">食物1：</view>
+    <input value="{{first}}" bindinput="firstInput" placeholder="食物1"></input>
+  </view>
+
+
+  <view class="cu-form-group">
+    <view class="title">食物2：</view>
+    <input value="{{second}}" bindinput="secondInput" placeholder="食物2"></input>
+  </view>
+
+
+  <view class="cu-form-group">
+    <view class="title">解释：</view>
+    <input value="{{jieshi}}" bindinput="jieshiInput" placeholder="食物分类"></input>
+  </view>
+
+
+
+
+  <view class="btn-area">
+
+
+    <button class="b1" type="primary" formType="submit">提交</button>
+    <button class="b2" formType="reset">重置</button>
+
+
+  </view>
+
+
+
+
+</form>

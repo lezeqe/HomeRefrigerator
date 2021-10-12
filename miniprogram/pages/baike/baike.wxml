@@ -1,0 +1,38 @@
+<van-notice-bar mode="closeable" scrollable="{{ false }}" text="提示：以下数据来自于百度百科的食物相克相宜表。" />
+
+<van-search value="{{ keyword }}" label="食物" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange"
+  bind:search="onSearch">
+  <view slot="action" bind:tap="onClick">搜索</view>
+</van-search>
+
+
+
+<block wx:if="{{baikeList.length !=0}}">
+
+  <block wx:for="{{baikeList}}" wx:key="*this">
+    <view class="cu-card dynamic isCard bw">
+      <view class="cu-item shadow">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item22">
+            <view class="content js">
+              <view>{{index+1}}：{{ item.first }} {{ item.second }}
+              </view>
+              <!-- <view class="text-gray text-sm flex justify-between">
+                更新时间：{{tools.dateFormat(item.postTime,'yyyy-MM-dd hh:mm:ss')}}
+              </view> -->
+            </view>
+          </view>
+        </view>
+
+        <view class="text-content">
+          {{item.jieshi}}
+        </view>
+      </view>
+    </view>
+
+  </block>
+</block>
+
+<block wx:else>
+  <van-empty description="安全起见，食用前先查查吧.." />
+</block>

@@ -1,0 +1,28 @@
+/* pages/blog/blog.wxss */
+.container {
+  padding: 24rpx;
+}
+
+
+.container button {
+  margin-top: 60rpx;
+}
+
+.van-uploader {
+  margin-top: 24rpx;
+}
+
+.btn-area{
+  margin: 1rpx;
+}
+
+.btn-area .b1{
+  width: 97% !important;
+  background:#1296db;
+  margin-bottom: 10rpx;
+}
+
+
+.btn-area .b2{
+  width: 97% !important;
+}

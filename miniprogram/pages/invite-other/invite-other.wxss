@@ -1,0 +1,46 @@
+.detail-view {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+
+.avatar-view {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  border: 1rpx solid #ccc;
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 200rpx;
+}
+
+.basic {
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.basic .name {
+  /* color: #ccc; */
+  display: block;
+  font-size: 36rpx;
+}
+
+
+.btn-area{
+  margin: 10rpx;
+}
+
+.btn-area .b1{
+  width: 92% !important;
+  background:#1296db;
+  margin-bottom: 20rpx;
+}
+
+
+.btn-area .b2{
+  width: 92% !important;
+}

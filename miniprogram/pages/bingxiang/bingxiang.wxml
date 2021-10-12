@@ -1,0 +1,380 @@
+<wxs src="../../wxs/timeago.wxs" module="tools"></wxs>
+<view class="detail-view">
+  <view class="avatar-view">
+    <image class="avatar" mode="aspectFill" src="{{bx_imageUrl}}" />
+  </view>
+
+  <view class="basic">
+    <view class="">{{bx_name}}</view>
+    <view>{{bx_location}}</view>
+  </view>
+
+</view>
+
+<van-tabs active="{{ active }}" bind:change="onChange" color="#1296db">
+
+  <van-tab title="物品">
+
+
+
+    <view class="VerticalBox">
+
+
+      <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}"
+        style="height:calc(100vh - 375rpx)">
+        <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{BXshiwuList}}" wx:key bindtap='tabSelect'
+          data-id="{{index}}">
+          {{item.name}}
+        </view>
+      </scroll-view>
+
+
+      <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)"
+        scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+        <view class="padding-top padding-lr" wx:for="{{BXshiwuList}}" wx:for-item="item" wx:key id="main-{{index}}">
+          <view class='cu-bar solid-bottom bg-white'>
+            <view class='action'>
+              <text class='cuIcon-title text-green'></text>{{item.name}}（{{item.shiwuList.length}}）
+            </view>
+          </view>
+          <view class="cu-list menu-avatar" wx:for="{{item.shiwuList}}" wx:for-item="shiwu" wx:key>
+
+            <view class="cu-item" bindtap="TurntoSW" data-shiwuid="{{shiwu._id}}">
+              <view class="cu-avatar round lg">
+                <image class="cu-avatar round lg" mode="aspectFill" src="{{shiwu.shiwuImage}}"></image>
+              </view>
+              <view class="content">
+                <view class="text-grey">{{shiwu.name}}</view>
+                <view class="text-gray text-sm flex">
+                  <!-- <text class="text-cut"> -->
+                  <!-- <text class="cuIcon-infofill text-red  margin-right-xs"></text> -->
+                  <!-- {{shiwu.backup}} -->
+                  {{tools.getGap(shiwu.postTime)}}入库
+                  <!-- </text> -->
+                </view>
+              </view>
+              <!-- <view class="action">
+                <view class="text-grey text-xs">{{tools.getGap(shiwu.postTime)}}</view>
+                
+              </view> -->
+              <button class="cu-btn text-blue" catchtap="showModal" data-name="{{shiwu.name}}"
+                data-shiwuid="{{shiwu._id}}" data-shiwunum="{{shiwu.num}}" data-target="RadioModal">取出</button>
+
+
+            </view>
+
+
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+
+
+    <view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="hideModal">
+      <view class="cu-dialog" catchtap>
+        <radio-group class="block" bindchange="radioChange">
+          <view class="biaoti">
+            <label>'{{shiwuName}}'，本次剩余多少？
+              <text class="cuIcon-close text-red kaoyou" bindtap="hideModal"></text>
+            </label>
+
+          </view>
+
+          <view class="cu-list menu text-left">
+            <view class="cu-item" wx:for="{{shiyuList}}" wx:key>
+              <label class="flex justify-between align-center flex-sub">
+                <view class="flex-sub">{{item.name}}%</view>
+                <radio value="{{item.value}}" checked="{{item.checked}}" class="round"></radio>
+              </label>
+            </view>
+          </view>
+        </radio-group>
+
+        <view class="vbut12">
+          <button bindtap="chukuBut">提交</button>
+        </view>
+      </view>
+    </view>
+
+
+
+
+
+
+
+
+
+
+
+    <van-button round class="btvant1" bindtap="turnToAddBx">
+      <text class="cuIcon-add lg text-white"></text>
+    </van-button>
+
+
+    <van-button round class="btvant2" open-type="share">
+      <text class="text-white">邀</text>
+    </van-button>
+
+
+
+  </van-tab>
+
+
+
+  <van-tab title="纸条">
+
+
+    <block wx:if="{{zhitiaoList.length !=0}}">
+      <block wx:for="{{zhitiaoList}}" wx:key="*this">
+        <view class="cu-card dynamic isCard bw">
+          <view class="cu-item shadow">
+            <view class="cu-list menu-avatar">
+              <view class="cu-item">
+                <view class="cu-avatar round lg" style="background-image:url({{item.userData.avatarUrl}});">
+                </view>
+                <view class="content flex-sub">
+                  <view>{{item.userData.nickName}}
+                    <text class="cuIcon-delete lg text-gray txx" data-ztid="{{item._id}}" catchtap="shanchuZT"
+                      wx:if="{{CurrentOpenId == item.userInfo.openId}}"></text>
+                  </view>
+                  <view class="text-gray text-sm flex justify-between">
+                    {{tools.dateFormat(item.postTime,'yyyy-MM-dd hh:mm:ss')}}
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <view class="text-content">
+              {{item.content}}
+            </view>
+          </view>
+        </view>
+      </block>
+
+    </block>
+
+    <block wx:else>
+      <van-empty description="写点想说的" />
+    </block>
+
+    <van-button round class="btvant1" bindtap="turnToAddZhitiao">
+      <text class="cuIcon-add lg text-white"></text>
+    </van-button>
+
+    <view class="myLoad">
+      <van-loading size="20px" type="spinner" wx:if="{{isLoading}}">
+        数据加载中...
+      </van-loading>
+    </view>
+
+
+  </van-tab>
+
+
+
+
+
+  <van-tab title="统计">
+
+
+    <van-collapse value="{{ activeNames }}" bind:change="onChangeTJ" size="large">
+
+      <van-collapse-item title="1.已过期" name="1" value="{{GQshiwuList.length}}     件   ">
+        <block wx:if="{{GQshiwuList.length !=0}}">
+          <view class="cu-list menu-avatar no-padding" wx:for="{{GQshiwuList}}" wx:key>
+            <view class="cu-item" bindtap="TurntoSW" data-shiwuid="{{item._id}}">
+              <view class="cu-avatar round lg">
+                <image class="cu-avatar round lg" mode="aspectFill" src="{{item.shiwuImage}}"></image>
+              </view>
+
+              <view class="content">
+                <view class="text-grey">
+                  <text class="text-abc">{{item.name}}·{{leibieNameList[item.kindIndex]}}</text>
+                </view>
+                <view class="text-gray text-sm">
+                  {{tools.getGap(item.postTime)}}入库、{{item.expirationDate}}过期
+
+                </view>
+
+              </view>
+
+              <button class="cu-btn text-blue" catchtap="showModal" data-name="{{item.name}}"
+                data-shiwuid="{{item._id}}" data-shiwunum="{{item.num}}" data-target="RadioModal">取出</button>
+            </view>
+          </view>
+        </block>
+
+        <block wx:else>
+          <label>暂无已过期物品</label>
+        </block>
+
+        <view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="hideModal">
+          <view class="cu-dialog" catchtap>
+            <radio-group class="block" bindchange="radioChange">
+              <view class="biaoti">
+                <label>'{{shiwuName}}'，本次剩余多少？
+                  <text class="cuIcon-close text-red kaoyou" bindtap="hideModal"></text>
+                </label>
+
+              </view>
+
+              <view class="cu-list menu text-left">
+                <view class="cu-item" wx:for="{{shiyuList}}" wx:key>
+                  <label class="flex justify-between align-center flex-sub">
+                    <view class="flex-sub">{{item.name}}%</view>
+                    <radio value="{{item.value}}" checked="{{item.checked}}" class="round"></radio>
+                  </label>
+                </view>
+              </view>
+            </radio-group>
+
+            <view class="vbut12">
+              <button bindtap="chukuBut1">提交</button>
+            </view>
+          </view>
+        </view>
+
+      </van-collapse-item>
+
+
+
+      <van-collapse-item title="2.一周内过期" name="2" value="{{LQshiwuList.length}}     件   ">
+
+        <block wx:if="{{LQshiwuList.length !=0}}">
+          <view class="cu-list menu-avatar no-padding" wx:for="{{LQshiwuList}}" wx:key>
+            <view class="cu-item" bindtap="TurntoSW" data-shiwuid="{{item._id}}">
+              <view class="cu-avatar round lg">
+                <image class="cu-avatar round lg" mode="aspectFill" src="{{item.shiwuImage}}"></image>
+              </view>
+
+              <view class="content">
+                <view class="text-grey">
+                  <text class="text-abc">{{item.name}}·{{leibieNameList[item.kindIndex]}}</text>
+                </view>
+                <view class="text-gray text-sm">
+                  {{tools.getGap(item.postTime)}}入库、{{item.expirationDate}}过期
+                </view>
+
+              </view>
+
+              <button class="cu-btn text-blue" catchtap="showModal" data-name="{{item.name}}"
+                data-shiwuid="{{item._id}}" data-shiwunum="{{item.num}}" data-target="RadioModal">取出</button>
+            </view>
+          </view>
+        </block>
+
+        <block wx:else>
+          <label>一周内暂无临期物品</label>
+        </block>
+
+      </van-collapse-item>
+
+
+      <van-collapse-item title="3.已完全取出" name="3" value="{{QCshiwuList.length}}     件   ">
+
+        <block wx:if="{{QCshiwuList.length !=0}}">
+          <view class="cu-list menu-avatar no-padding" wx:for="{{QCshiwuList}}" wx:key>
+            <view class="cu-item" bindtap="TurntoSW" data-shiwuid="{{item._id}}">
+              <view class="cu-avatar round lg">
+                <image class="cu-avatar round lg" mode="aspectFill" src="{{item.shiwuImage}}"></image>
+              </view>
+
+              <view class="content">
+                <view class="text-grey">
+                  <text class="text-abc">{{item.name}}·{{leibieNameList[item.kindIndex]}}</text>
+                </view>
+                <view class="text-gray text-sm">
+                  {{tools.getGap(item.postTime)}}入库、{{item.expirationDate}}过期
+                </view>
+              </view>
+
+              <button class="cu-btn text-blue" catchtap="deleteSWJL" data-name="{{item.name}}"
+                data-shiwuid="{{item._id}}" data-shiwunum="{{item.num}}">删除</button>
+            </view>
+          </view>
+        </block>
+
+        <block wx:else>
+          <label>暂无已完全取出的物品</label>
+        </block>
+
+
+      </van-collapse-item>
+
+
+      <van-collapse-item title="4.存放超过两周" name="4" value="{{DayShiwuList14.length}}     件   ">
+
+
+        <block wx:if="{{DayShiwuList14.length !=0}}">
+
+          <view class="cu-list menu-avatar no-padding" wx:for="{{DayShiwuList14}}" wx:key>
+            <view class="cu-item" bindtap="TurntoSW" data-shiwuid="{{item._id}}">
+              <view class="cu-avatar round lg">
+                <image class="cu-avatar round lg" mode="aspectFill" src="{{item.shiwuImage}}"></image>
+              </view>
+
+              <view class="content">
+                <view class="text-grey">
+                  <text class="text-abc">{{item.name}}·{{leibieNameList[item.kindIndex]}}</text>
+                </view>
+                <view class="text-gray text-sm">
+                  {{tools.getGap(item.postTime)}}入库、{{item.expirationDate}}过期
+                </view>
+              </view>
+
+              <button class="cu-btn text-blue" catchtap="showModal1" data-name="{{item.name}}"
+                data-shiwuid="{{item._id}}" data-shiwunum="{{item.num}}" data-target="RadioModal">取出</button>
+            </view>
+          </view>
+        </block>
+
+        <block wx:else>
+          <label>暂无超过14天未使用的物品</label>
+        </block>
+
+      </van-collapse-item>
+
+      <van-collapse-item title="5.未添加过期时间" name="5" value="{{NoGQshiwuList.length}}     件   ">
+
+        <block wx:if="{{NoGQshiwuList.length !=0}}">
+          <view class="cu-list menu-avatar no-padding" wx:for="{{NoGQshiwuList}}" wx:key>
+            <view class="cu-item" bindtap="TurntoSW" data-shiwuid="{{item._id}}">
+              <view class="cu-avatar round lg">
+                <image class="cu-avatar round lg" mode="aspectFill" src="{{item.shiwuImage}}"></image>
+              </view>
+
+              <view class="content">
+                <view class="text-grey">
+                  <text class="text-abc">{{item.name}}·{{leibieNameList[item.kindIndex]}}</text>
+                </view>
+                <view class="text-gray text-sm">
+                  {{tools.getGap(item.postTime)}}入库
+                </view>
+              </view>
+
+              <button class="cu-btn text-blue" catchtap="showModal" data-name="{{item.name}}"
+                data-shiwuid="{{item._id}}" data-shiwunum="{{item.num}}" data-target="RadioModal">取出</button>
+
+
+            </view>
+          </view>
+        </block>
+
+        <block wx:else>
+          <label>暂无未添加过期时间的物品</label>
+        </block>
+
+
+      </van-collapse-item>
+
+
+    </van-collapse>
+
+
+
+
+
+
+  </van-tab>
+</van-tabs>

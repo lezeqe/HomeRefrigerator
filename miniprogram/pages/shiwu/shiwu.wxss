@@ -1,0 +1,106 @@
+/* miniprogram/pages/list/list.wxss */
+
+
+page {
+  height: 100%;
+  background-color: #fff;
+}
+
+
+.list-comment {
+  margin-top: 5rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-size: 34rpx;
+  line-height: 1.5;
+}
+
+
+.for-img {
+  margin: 20rpx;
+}
+
+/* .for-img image{
+  margin: 10rpx;
+  margin-right: 20rpx;
+} */
+
+
+.comment-icon {
+  width: 22rpx;
+  height: 36rpx;
+  vertical-align: top;
+}
+.comment-icon.left {
+  margin-right: 6rpx;
+}
+.comment-icon.right {
+  margin-left: 6rpx;
+}
+
+image {
+  display: block;
+  width: 100%;
+}
+
+.Rose-box {
+  background: #fff;
+}
+
+
+
+.Rose-detail {
+  font-size: 32rpx;
+  line-height: 1.8;
+  padding: 20rpx;
+  color: #4f4f4f;
+}
+
+
+.Rose-lines:before, .wxParse-h3:before {
+  position: absolute;
+  top: 16rpx;
+  left: 0;
+  width: 8rpx;
+  height: 36rpx;
+  content: '';
+  background: #4bb777;
+}
+
+.Rose-topli {
+  position: relative;
+  padding: 10rpx 10rpx 10rpx 40rpx;
+  font-size: 35rpx;
+  color: #999;
+}
+
+.Rose-topli:before {
+  position: absolute;
+  left: 20rpx;
+  top: 34rpx;
+  width: 10rpx;
+  height: 8rpx;
+  background: #1cbbb4;
+  content: '';
+  border-radius: 100%;
+}
+
+
+.Rose-top {
+  
+  padding: 20rpx 0;
+}
+
+.Rose-detail {
+  font-size: 32rpx;
+  line-height: 1.8;
+  padding: 20rpx;
+  color: #4f4f4f;
+  
+}
+
+
+.list-img {
+  display: block;
+  background-color: #f4f5f7;
+}

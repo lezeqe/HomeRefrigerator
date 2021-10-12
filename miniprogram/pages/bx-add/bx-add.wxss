@@ -1,0 +1,117 @@
+.solid-bottom text-xl padding {
+  padding: 5rpx;
+}
+
+.fengmian {
+  background-color: #fff;
+}
+
+.fengmian .text {
+
+  position: fixed;
+  left: 20rpx;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+}
+
+.fengmian .van-uploader {
+
+  margin-top: 20rpx;
+  margin-left: 136rpx;
+}
+
+page {
+  background-color: #ffffff;
+}
+
+.kaifang {
+  margin: 30rpx;
+  font-size: 28rpx;
+}
+
+
+.kaifang .text {
+
+  position: fixed;
+  left: 20rpx;
+  margin: 30rpx;
+  font-size: 28rpx;
+
+}
+
+.kaifang .van-switch {
+
+  position: fixed;
+  right: 40rpx;
+
+}
+
+.mima .block .cu-form-group {
+
+  display: flex;
+
+  flex-direction: row;
+  left: 50rpx;
+}
+
+.mima .block .cu-form-group .title {
+  width: 200rpx;
+
+}
+
+.mima .block .cu-form-group .radio-t {
+  position: relative;
+  left: 30rpx;
+  width: 300rpx;
+
+  flex: 1;
+}
+
+.mima .block .cu-form-group .radio {
+  margin: 28rpx;
+  width: 55rpx;
+}
+
+.mima .block .cu-form-group .radio text {
+  margin: 15rpx;
+  font-size: 28rpx;
+}
+
+.mima text {
+  margin-left: 30rpx;
+  text-align: center;
+}
+
+button {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.button-sp-area{
+  margin: 0 auto;
+  width: 80%;
+}
+
+.cu-form-group{
+
+  border-bottom: 1rpx solid #eee;
+}
+
+.cu-bar .bg-white .margin-top{
+  margin-top: 10rpx;
+}
+
+.btn-area{
+  margin: 10rpx;
+}
+
+.btn-area .b1{
+  width: 92% !important;
+  background:#1296db
+}
+
+
+.btn-area .b2{
+  width: 92% !important;
+}
+

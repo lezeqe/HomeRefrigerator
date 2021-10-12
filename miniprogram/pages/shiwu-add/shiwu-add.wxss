@@ -1,0 +1,21 @@
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+
+
+.btn-area{
+  margin: 30rpx;
+}
+
+.btn-area .b1{
+  width: 97% !important;
+  background:#1296db;
+  margin-bottom: 20rpx;
+}
+
+
+.btn-area .b2{
+  width: 97% !important;
+  margin-bottom: 20rpx;
+}
+

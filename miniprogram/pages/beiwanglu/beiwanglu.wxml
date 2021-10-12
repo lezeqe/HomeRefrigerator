@@ -1,0 +1,33 @@
+<van-notice-bar mode="closeable" scrollable="{{ false }}" text="好记性不如烂笔头。饮食注意事项，写在这最好不过了。" />
+
+<block wx:if="{{baikeList.length !=0}}">
+
+  <block wx:for="{{baikeList}}" wx:key="*this">
+    <view class="cu-card dynamic isCard bw">
+      <view class="cu-item shadow">
+        <view class="cu-list menu-avatar">
+          <view class="cu-item22">
+            <view class="content js">
+              <view>{{index+1}}：{{ item.first }} {{ item.second }}
+              </view>
+              <!-- <view class="text-gray text-sm flex justify-between">
+              更新时间：{{tools.dateFormat(item.postTime,'yyyy-MM-dd hh:mm:ss')}}
+            </view> -->
+            </view>
+          </view>
+        </view>
+
+        <view class="text-content">
+          {{item.jieshi}}
+        </view>
+      </view>
+    </view>
+
+  </block>
+</block>
+
+<block wx:else>
+  <van-empty description="安全起见，食用前先查查吧.." />
+</block>
+
+

@@ -1,0 +1,65 @@
+<view>
+  <scroll-view scroll-y style='height:100%;'>
+
+    <view class="Rose-top">
+      <view class="Rose-topli" wx:if="{{shiwuData.name}}">
+        名称：{{shiwuData.name}}</view>
+      <!-- <view class="Rose-topli" wx:if="{{shiwuData.weight}}">重量：{{shiwuData.weight}}克</view> -->
+
+      <!-- <view class="Rose-topli" wx:if="{{shiwuData.price}}">价格：{{shiwuData.price}}元</view> -->
+
+      <view class="Rose-topli" wx:if="{{shiwuData.num}}">数量：{{shiwuData.num}}份</view>
+
+      <!-- <view class="Rose-topli" wx:if="{{shiwuData.source}}">来源：{{shiwuData.source}}</view> -->
+
+      <view class="Rose-topli" wx:if="{{shiwuData.kindIndex}}">类别：{{leibieNameList[shiwuData.kindIndex]}}</view>
+
+      <view class="Rose-topli" wx:if="{{shiwuData.location}}">位置：{{shiwuData.location}}</view>
+
+      <view class="Rose-topli" wx:if="{{shiwuData.backup}}">备注：{{shiwuData.backup}}</view>
+
+      <!-- <view class="Rose-topli" wx:if="{{shiwuData.productionDate}}">生产日期：{{shiwuData.productionDate}}</view> -->
+
+      <view class="Rose-topli" wx:if="{{shiwuData.expirationDate}}">过期日期：{{shiwuData.expirationDate}}</view>
+
+    </view>
+
+    <view class="for-img">
+      <!-- 图片 -->
+      <image src="{{shiwuData.shiwuImage}}" mode='aspectFill' class='list-img'></image>
+    </view>
+
+
+
+  </scroll-view>
+
+  <block>
+
+
+    <van-steps steps="{{ ShuwuRecordList }}" active="{{ active }}" direction="vertical" active-color="#39b54a" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </block>
+
+
+
+
+
+
+
+
+</view>

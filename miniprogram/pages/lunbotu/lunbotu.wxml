@@ -1,0 +1,18 @@
+<van-notice-bar left-icon="volume-o" text="首页轮播图只显示最新的前五张。" scrollable="{{false}}" />
+
+<view class="container">
+  <form bindsubmit="onSubmit">
+
+    <van-uploader wx:if="{{tapIdx==1}}" max-count="3" multiple file-list="{{ fileList }}" bind:after-read="afterReadImg"
+      bind:delete="delImg" />
+
+    <view class="btn-area">
+
+      <button type="primary" disabled="{{btnDis}}" form-type="submit" class="b1">添加轮播图</button>
+
+    </view>
+
+
+  </form>
+
+</view>

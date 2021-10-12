@@ -1,0 +1,21 @@
+<!--pages/me/me.wxml-->
+<view class="Rose-detail">
+  <view class="Rose-content">
+    <!-- <view class="Rose-item">
+      <view class="Rose-line">广州市家好月圆科技有限公司</view>
+      本司于2021年3月9日成立于广州市白云区，致力于——通过科技，使得每个家庭更加和谐美满。
+    </view> -->
+    <view class="Rose-item">
+      <view class="Rose-line">家庭冰箱管理助手</view>
+      <view class="Rose-content">
+        家庭冰箱管理助手，简称“家箱”，本小程序主要有三大职能：保障食品安全、减少食物浪费、增加家庭互动。后面还有更多实用的功能，敬请关注。谢谢。
+      </view>
+    </view>
+    <view class="Rose-item">
+      <view class="Rose-line">建议&投诉</view>
+      <text class="Rose-concact">建议邮箱: lezeqe@sina.cn</text>
+      <text class="Rose-concact">投诉邮箱: jiaxiang@jhyy.club </text>
+    </view>
+  
+  </view>
+</view>

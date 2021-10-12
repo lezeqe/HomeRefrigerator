@@ -1,0 +1,323 @@
+.detail-view {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+
+.avatar-view {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  border: 1rpx solid #ccc;
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 200rpx;
+}
+
+.basic {
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.basic .name {
+  color: #ccc;
+  display: block;
+}
+
+page {
+  background-color: #ffffff;
+}
+
+.btvant1 {
+  position: fixed;
+  right: 27rpx;
+  bottom: 228rpx;
+}
+
+.btvant1 .van-button {
+
+  width: 103rpx;
+  height: 103rpx;
+  font-size: 50rpx;
+  background-color: #1296db;
+
+}
+
+
+.btvant2 {
+  position: fixed;
+  right: 27rpx;
+  bottom: 118rpx;
+}
+
+.btvant2 .van-button {
+
+  width: 103rpx;
+  height: 103rpx;
+  font-size: 50rpx;
+  background-color: #1296db;
+
+}
+
+
+
+/* pages/component/nav/nav.wxss */
+.VerticalNav.nav {
+  width: 200rpx;
+  white-space: initial;
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+  border: none;
+  height: 50px;
+  position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+  background-color: #f1f1f1;
+}
+
+.VerticalNav.nav .cu-item.cur::after {
+  content: "";
+  width: 8rpx;
+  height: 30rpx;
+  border-radius: 10rpx 0 0 10rpx;
+  position: absolute;
+  background-color: currentColor;
+  top: 0;
+  right: 0rpx;
+  bottom: 0;
+  margin: auto;
+}
+
+.VerticalBox {
+  display: flex;
+}
+
+.VerticalMain {
+  background-color: #f1f1f1;
+}
+
+
+
+
+
+
+.toast-box {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  position: fixed;
+  top: 200rpx;
+  left: 0px;
+}
+
+
+.toastbg {
+  opacity: 0.2;
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.showToast {
+  position: absolute;
+  opacity: 1;
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 40%;
+}
+
+.toast-title {
+  padding-left: 5%;
+  background-color: #2196f3;
+  color: white;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-top-right-radius: 16rpx;
+  border-top-left-radius: 16rpx;
+}
+
+.toast-main {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  background-color: white;
+  text-align: center;
+}
+
+.toast-input {
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px solid #ddd;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.toast-button {
+  display: flex;
+}
+
+.button1 {
+  width: 50%;
+}
+
+.button2 {
+  width: 50%;
+}
+
+.button1 button {
+  width: 100%;
+  background-color: white;
+  color: red;
+  border-radius: 0px;
+  border-bottom-left-radius: 16rpx;
+}
+
+.button2 button {
+  width: 100%;
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  border-bottom-right-radius: 16rpx;
+}
+
+
+.biaoti {
+  font-size: 33rpx;
+  color: #1296db;
+  margin: 17rpx;
+}
+
+
+.vbut12 {
+  margin: 10rpx;
+}
+
+.kaoyou {
+  position: absolute;
+  right: 30rpx;
+}
+
+
+.txx {
+  position: absolute;
+  right: 7rpx;
+  font-size: 36rpx;
+  color: #1296db;
+
+}
+
+
+.bw {
+
+  background-color: var(--ghostWhite);
+  color: var(--black);
+
+}
+
+
+/* 统计 */
+
+page {
+  padding-top: 100rpx;
+}
+
+.indexes {
+  position: relative;
+}
+
+.indexBar {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  padding: 20rpx 20rpx 20rpx 60rpx;
+  display: flex;
+  align-items: center;
+}
+
+.indexBar .indexBar-box {
+  width: 40rpx;
+  height: auto;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+  border-radius: 10rpx;
+}
+
+.indexBar-item {
+  flex: 1;
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #888;
+}
+
+movable-view.indexBar-item {
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 9;
+  position: relative;
+}
+
+movable-view.indexBar-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+  height: 20rpx;
+  width: 4rpx;
+  background-color: #f37b1d;
+}
+
+.indexToast {
+  position: fixed;
+  top: 0;
+  right: 80rpx;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin: auto;
+  color: #fff;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 48rpx;
+}
+
+.tjbt {
+
+  background-color: #f1f1f1;
+}
+
+.tjbt text {
+
+  margin-left: 1rpx;
+  color: #000;
+  font-size: 30rpx;
+}
+
+.tjym {
+  background-color: #1296db;
+}
+
+.myLoad {
+  text-align: center;
+  padding: 10rpx;
+}

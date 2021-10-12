@@ -1,0 +1,139 @@
+<form catchsubmit="formSubmit" catchreset="formReset">
+
+  <view class="cu-bar bg-white margin-top">
+    <view class="action title">
+      物品图片：
+    </view>
+    <view class="action">
+      {{imgList.length}}/1
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage"
+        data-url="{{imgList[index]}}">
+        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="cu-form-group">
+    <view class="title text-red">名称：</view>
+    <input value="{{shiwu.name}}" bindinput="nameInput" maxlength='6' placeholder="请输入物品名称"></input>
+  </view>
+
+  <!-- <view class="cu-form-group">
+    <view class="title">重量：</view>
+    <input value="{{shiwu.weight}}" bindinput="weightInput" placeholder="请输入大概的重量"></input>
+    <text>克</text>
+  </view> -->
+
+  <!-- <view class="cu-form-group">
+    <view class="title">价格：</view>
+    <input value="{{shiwu.price}}" bindinput="priceInput" placeholder="请输入大概的价格"></input>
+    <text>元</text>
+  </view> -->
+
+  <view class="cu-form-group">
+    <view class="title">数量：</view>
+    <input value="{{shiwu.num}}" bindinput="numInput" type='number' placeholder="请输入数量"></input>
+    <text>份</text>
+  </view>
+
+  <!-- <view class="cu-form-group">
+    <view class="title">来源：</view>
+    <picker bindchange="sourcePickerChange" value="{{shiwu.sourceIndex}}" range="{{sourcePicker}}">
+      <view class="picker">
+        {{shiwu.sourceIndex?sourcePicker[shiwu.sourceIndex]:'请选择来源'}}
+      </view>
+    </picker>
+  </view> -->
+
+  <view class="cu-form-group">
+    <view class="title text-red">类别：</view>
+    <picker bindchange="kindPickerChange" value="{{shiwu.kind}}" range="{{leibieNameList}}">
+      <view class="picker">
+        {{shiwu.kindIndex?leibieNameList[shiwu.kindIndex]:'请选择类别'}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title text-red">位置：</view>
+    <picker bindchange="locationPickerChange" value="{{shiwu.locationIndex}}" range="{{locationPicker}}">
+      <view class="picker">
+        {{shiwu.locationIndex?locationPicker[shiwu.locationIndex]:'请选择位置'}}
+      </view>
+    </picker>
+  </view>
+
+
+  <!-- <view class="cu-form-group">
+    <view class="title">生产日期:</view>
+    <picker mode="date" value="{{shiwu.productionDate}}" start="2010-01-01" end="2029-12-31"
+      bindchange="productionDateChange">
+      <view class="picker">
+        {{shiwu.productionDate?shiwu.productionDate:'请选择日期'}}
+      </view>
+    </picker>
+  </view> -->
+
+  <view class="cu-form-group">
+    <view class="title">过期日期:</view>
+    <picker mode="date" value="{{shiwu.expirationDate}}" start="2020-01-01" end="2039-12-31"
+      bindchange="expirationDateChange">
+      <view class="picker">
+        {{shiwu.expirationDate?shiwu.expirationDate:'请选择日期'}}
+      </view>
+    </picker>
+  </view>
+
+
+  <!-- <view class="cu-bar bg-white margin-top">
+    <view class="action">
+      物品图片：
+    </view>
+    <view class="action">
+      {{imgList.length}}/1
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage"
+        data-url="{{imgList[index]}}">
+        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view> -->
+
+
+
+  <view class="cu-form-group">
+    <textarea maxlength="-1" disabled="{{modalName!=null}}" maxlength='50' bindinput="backupInput" value="{{shiwu.backup}}"
+      placeholder="请输入备注"></textarea>
+  </view>
+
+
+  <view class="btn-area">
+
+    <button class="b1" type="primary" formType="submit">提交</button>
+    <button class="b2" formType="reset">重置</button>
+
+  </view>
+
+</form>
+
+

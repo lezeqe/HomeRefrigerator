@@ -1,0 +1,16 @@
+<form catchsubmit="formSubmit" catchreset="formReset">
+
+
+  <view class="cu-form-group">
+    <textarea maxlength="-1" value="{{zhitiao.content}}" bindinput="textareaAInput"
+      placeholder="请输入纸条内容..."></textarea>
+  </view>
+
+  <view class="btn-area">
+
+    <button class="b1" type="primary" formType="submit">提交</button>
+    <button class="b2" formType="reset">重置</button>
+
+  </view>
+
+</form>

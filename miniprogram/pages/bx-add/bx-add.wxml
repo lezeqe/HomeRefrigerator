@@ -1,0 +1,76 @@
+<form catchsubmit="formSubmit" catchreset="formReset">
+
+  <view class="cu-bar bg-white">
+    <view class="action">
+      冰箱封面：
+    </view>
+    <view class="action">
+      {{bingxiang.imgList.length}}/1
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{bingxiang.imgList}}" wx:key="{{index}}" bindtap="ViewImage"
+        data-url="{{bingxiang.imgList[index]}}">
+        <image src='{{bingxiang.imgList[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{bingxiang.imgList.length<1}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="cu-form-group">
+    <view class="title">冰箱名称：</view>
+    <input value="{{bingxiang.bx_name}}" bindinput="bxNameInput" maxlength='6' placeholder="请输入冰箱的名称"></input>
+  </view>
+
+  <view class="cu-form-group">
+    <view class="title">冰箱位置：</view>
+    <input value="{{bingxiang.bx_location}}" bindinput="bxLocationInput" placeholder="请输入冰箱的位置"></input>
+  </view>
+
+  <view class="cu-form-group">
+    <textarea maxlength="-1" value="{{bingxiang.bx_backup}}" maxlength='15' bindinput="textareaAInput"
+      placeholder="请输入冰箱的备注..."></textarea>
+  </view>
+
+
+  <!-- <view class="cu-bar bg-white">
+    <view class="action">
+      封面上传
+    </view>
+    <view class="action">
+      {{bingxiang.imgList.length}}/1
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{bingxiang.imgList}}" wx:key="{{index}}" bindtap="ViewImage"
+        data-url="{{bingxiang.imgList[index]}}">
+        <image src='{{bingxiang.imgList[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{bingxiang.imgList.length<1}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view> -->
+
+
+
+  <view class="btn-area">
+
+    <button class="b1" type="primary" formType="submit">提交</button>
+    <button class="b2" formType="reset">重置</button>
+
+  </view>
+
+
+</form>

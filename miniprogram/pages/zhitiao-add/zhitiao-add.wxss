@@ -1,0 +1,22 @@
+.btn-area {
+  margin: 30rpx;
+}
+
+.btn-area .b1 {
+  width: 99% !important;
+  background: #1296db;
+  margin-bottom: 20rpx;
+}
+
+
+.btn-area .b2 {
+  width: 99% !important;
+  margin-bottom: 20rpx;
+}
+
+.cu-form-group {
+
+  border-bottom: 1rpx solid #eee;
+  width: 95%;
+  margin: 20rpx;
+}

@@ -1,0 +1,178 @@
+<wxs src="../../wxs/timeago.wxs" module="tools"></wxs>
+
+<!-- 个人的轮播图 -->
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true"
+  interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{lunbotuList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover"
+        wx:if="{{item.type=='video'}}"></video>
+    </view>
+  </swiper-item>
+</swiper>
+
+<!-- 冰箱列表 -->
+<!-- <block wx:if="{{bingxiangShareList.length == 0}}">
+  <view class="wojiaru">我创建的冰箱：</view>
+</block> -->
+
+
+
+<!-- 
+<block wx:if="{{bingxiangList}}">
+
+  <view class="tab-content" wx:for="{{bingxiangList}}" bindtap="trunToBingxiang" data-item="{{item}}" >
+    <van-swipe-cell id="swipe-cell" right-width="{{ 80 }}" async-close ="true" data-bxidd="{{item._id}}" 
+      data-bxname="{{item.bx_name}}" bind:close="shanchuBX" bind:click = "trunToBingxiang" data-item="{{item}}">
+
+      <van-cell-group>
+
+        <view class="tab-content-item">
+
+          <block>
+            <view class="favorite-film-item">
+              <image class="favorite-film-cover" src="{{item.imageUrl}}" mode="aspectFill"></image>
+              <view class="favorite-film-info">
+                <view class="favorite-film-txt favorite-film-title">冰箱{{index+1}}：{{item.bx_name}}<text
+                    class="cuIcon-add lg text-gray txx" data-bxidd="{{item._id}}" data-bxname="{{item.bx_name}}"
+                    catchtap="shanchuBX"></text></view>
+                <view class="favorite-film-txt">位置：{{item.bx_location}}</view>
+                
+                <view class="favorite-film-txt">共享：{{item.shareNameList}}
+                </view>
+
+                <view class="favorite-film-txt">备注：{{item.bx_backup}}
+                </view>
+
+                <view class="favorite-film-txt">建档日期：{{tools.dateFormat(item.postTime,"yyyy-MM-dd")}}</view>
+               
+              </view>
+            </view>
+          </block>
+        </view>
+
+      </van-cell-group>
+      <view slot="right" class="van-swipe-cell__right">删除</view>
+    </van-swipe-cell>
+
+  </view>
+
+</block>
+ -->
+
+
+
+<block wx:if="{{bingxiangList.length!=0 ||bingxiangShareList.length!=0}}">
+
+  <block wx:if="{{bingxiangList}}">
+
+    <view class="wojiaru">创建的冰箱：</view>
+
+    <view class="tab-content" wx:for="{{bingxiangList}}" bindtap="trunToBingxiang" data-item="{{item}}">
+      <view class="tab-content-item">
+
+        <block>
+          <view class="favorite-film-item">
+            <image class="favorite-film-cover" src="{{item.imageUrl}}" mode="aspectFill"></image>
+            <view class="favorite-film-info">
+              <view class="favorite-film-txt favorite-film-title">冰箱{{index+1}}：{{item.bx_name}}<text
+                  class="cuIcon-delete lg text-gray txx" data-bxidd="{{item._id}}" data-bxname="{{item.bx_name}}"
+                  catchtap="shanchuBX"></text></view>
+
+              <view class="favorite-film-txt">物品：{{item.shiwuList.length}} 件
+              </view>
+
+              <view class="favorite-film-txt">位置：{{item.bx_location}}</view>
+
+              <view class="favorite-film-txt">建档：{{tools.dateFormat(item.postTime,"yyyy-MM-dd")}}</view>
+
+
+
+              <!-- <view class="favorite-film-txt">建档日期：{{tools.dateFormat(item.postTime,"yyyy-MM-dd")}}</view> -->
+              <view class="favorite-film-txt" wx:if="{{item.shareNameList.length !=0}}">共享：{{item.shareNameList}}
+              </view>
+
+              <view class="favorite-film-txt" wx:if="{{item.bx_backup}}">备注：{{item.bx_backup}}
+              </view>
+
+            </view>
+          </view>
+        </block>
+      </view>
+
+    </view>
+
+
+
+  </block>
+
+
+  <!-- 冰箱列表 -->
+
+  <block wx:if="{{bingxiangShareList.length !=0 }}">
+    <view class="wojiaru">加入的冰箱：</view>
+
+    <view class="tab-content" wx:for="{{bingxiangShareList}}" bindtap="trunToBingxiang" data-item="{{item}}">
+
+      <view class="tab-content-item">
+
+        <block>
+          <view class="favorite-film-item">
+            <image class="favorite-film-cover" src="{{item.imageUrl}}" mode="aspectFill"></image>
+            <view class="favorite-film-info">
+              <view class="favorite-film-txt favorite-film-title">冰箱{{index+1}}：{{item.bx_name}}<text
+                  class="cuIcon-delete lg text-gray txx" data-bxidd="{{item._id}}" data-bxname="{{item.bx_name}}"
+                  catchtap="quxiaoBX"></text></view>
+
+                  <view class="favorite-film-txt">物品：{{item.shiwuList.length}} 件
+              </view>
+                  
+              <view class="favorite-film-txt">位置：{{item.bx_location}}</view>
+
+              <view class="favorite-film-txt">建档：{{tools.dateFormat(item.postTime,"yyyy-MM-dd")}}</view>
+             
+             
+              <view class="favorite-film-txt">创建：{{item.faqizhe.nickName}}
+              </view>
+
+              <view class="favorite-film-txt" wx:if="{{item.bx_backup}}">备注：{{item.bx_backup}}
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+    </view>
+
+  </block>
+
+</block>
+
+<block wx:else>
+  <van-empty description="请创建或加入冰箱..." />
+</block>
+
+
+
+
+
+<van-button round class="btvant1" bindtap="turnToAddBx">
+  <text class="cuIcon-add lg text-white"></text>
+</van-button>
+
+
+
+<!-- 海报分享按钮 -->
+<van-button round class="btvant2" bindtap="createCanvasImage">
+  <text class="cuIcon-forward lg text-white"></text>
+</van-button>
+
+<!-- 生成海报 -->
+<canvas canvas-id="myCanvas" style="width: 690px;height:1085px;position: fixed;top: -10000px;"></canvas>
+
+<van-popup show="{{ show }}" round position="bottom" custom-style="height: 89%" bind:close="onClose" close-icon="close"
+  closeable>
+  <image src="{{canvasToTempFilePath}}" mode="aspectFit" class="cv-img"></image>
+  <button bindtap="saveShareImg" class="bc-bt">保存分享海报</button>
+</van-popup>

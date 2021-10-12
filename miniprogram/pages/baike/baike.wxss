@@ -1,0 +1,19 @@
+.kk {
+  margin: 10rpx;
+  background-color: #ffffff;
+}
+
+
+.cu-item22{
+  position: relative;
+	display: flex;
+	padding-right: 30rpx;
+	height: 50rpx;
+
+	align-items: center
+}
+
+.js{
+  margin-left: 30rpx;
+  font-size: large;
+}

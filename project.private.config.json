@@ -1,0 +1,168 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "pages/getOpenId/index",
+          "pathName": "pages/getOpenId/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/deployService/index",
+          "pathName": "pages/deployService/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/selectRecord/index",
+          "pathName": "pages/selectRecord/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/sumRecordResult/index",
+          "pathName": "pages/sumRecordResult/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/updateRecord/index",
+          "pathName": "pages/updateRecord/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/updateRecordResult/index",
+          "pathName": "pages/updateRecordResult/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/updateRecordSuccess/index",
+          "pathName": "pages/updateRecordSuccess/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "添加冰箱",
+          "pathName": "pages/bx-add/bx-add",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "冰箱详情",
+          "pathName": "pages/bingxiang/bingxiang",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "添加食物",
+          "pathName": "pages/shiwu-add/shiwu-add",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "添加分类",
+          "pathName": "pages/shiwu-add-test/shiwu-add-test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "关于详情",
+          "pathName": "pages/guanyu-detail/guanyu-detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "纸条添加",
+          "pathName": "pages/zhitiao-add/zhitiao-add",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "冰箱",
+          "pathName": "pages/bingxiang/bingxiang",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "点击进入“邀请”页面",
+          "pathName": "pages/invite-other/invite-other",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "添加轮播图",
+          "pathName": "pages/lunbotu/lunbotu",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "海报1",
+          "pathName": "pages/haibao1/haibao1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "海报2",
+          "pathName": "pages/haibao2/haibao2",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "海报3",
+          "pathName": "pages/haibao3/haibao3",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "海报4",
+          "pathName": "pages/haibao4/haibao4",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "海报5",
+          "pathName": "pages/haibao5/haibao5",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "图片检测",
+          "pathName": "pages/imgsec/imgsec",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "百科",
+          "pathName": "pages/baike/baike",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "备忘录",
+          "pathName": "pages/beiwanglu/beiwanglu",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
